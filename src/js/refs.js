@@ -1,6 +1,6 @@
 
-import {galleryItems} from './app.js';
-
+// import *as galleryItems from '../app.js'; // забрать всё
+import {galleryItems} from './main-objects.js';
 const refs = {
     galleryUl: document.querySelector('.js-gallery'),
     lightbox: document.querySelector('.lightbox'),
