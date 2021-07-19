@@ -163,7 +163,7 @@ var galleryItems = [{
 }]; // export default galleryItems;
 
 exports.galleryItems = galleryItems;
-},{}],"js/refs.js":[function(require,module,exports) {
+},{}],"js/refs-main.js":[function(require,module,exports) {
 "use strict";
 
 var _mainObjects = require("./main-objects.js");
@@ -238,6 +238,45 @@ function onEscKeydown(event) {
   }
 
   console.log(event);
+} //скрипт для перелистывания картинок клавишами вправо и влево 
+
+
+window.addEventListener("keydown", function (event) {
+  if (event.code === "ArrowLeft") {
+    onArrowLeft();
+  }
+
+  if (event.code === "ArrowRight") {
+    onArrowRight();
+  }
+});
+
+function onArrowLeft() {
+  var index = +refs.lightboxImage.dataset.index;
+
+  if (index === 0) {
+    step(_mainObjects.galleryItems.length - 1);
+    return;
+  }
+
+  step(index, -1);
+}
+
+function onArrowRight() {
+  var index = +refs.lightboxImage.dataset.index;
+
+  if (index === _mainObjects.galleryItems.length - 1) {
+    step(0);
+    return;
+  }
+
+  step(index, 1);
+}
+
+function step(index) {
+  var step = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  refs.lightboxImage.dataset.index = "".concat(index + step);
+  refs.lightboxImage.src = _mainObjects.galleryItems[index + step].original;
 }
 },{"./main-objects.js":"js/main-objects.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -443,5 +482,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/refs.js"], null)
-//# sourceMappingURL=/refs.bdec1097.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/refs-main.js"], null)
+//# sourceMappingURL=/refs-main.31391b08.js.map
