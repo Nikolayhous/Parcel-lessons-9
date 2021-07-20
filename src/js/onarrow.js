@@ -2,8 +2,16 @@ import {galleryItems} from './main-objects.js'
 import {refs} from './refs.js'
   
   //скрипт для перелистывания картинок клавишами вправо и влево 
+  window.addEventListener("keydown", (event) => {
+    if (event.code === "ArrowLeft") {
+      onArrowLeft();
+    }
+    if (event.code === "ArrowRight") {
+      onArrowRight();
+    }
+  });
 
-   function onArrowLeft() {
+   export function onArrowLeft() {
     let index = +refs.lightboxImage.dataset.index;
     if (index === 0) {
       step(galleryItems.length - 1);
@@ -11,7 +19,7 @@ import {refs} from './refs.js'
     }
     step(index, -1);
   }
-   function onArrowRight() {
+  export function onArrowRight() {
     let index = +refs.lightboxImage.dataset.index;
     if (index === galleryItems.length - 1) {
       step(0);
@@ -20,9 +28,8 @@ import {refs} from './refs.js'
     step(index, 1);
   }
   
-   function step(index, step = 0) {
+   export function step(index, step = 0) {
     refs.lightboxImage.dataset.index = `${index + step}`;
     refs.lightboxImage.src = galleryItems[index + step].original;
   }
 
-  export default {onArrowLeft, onArrowRight, step}

@@ -1,6 +1,8 @@
   
   import {galleryItems} from './main-objects.js';
   import {refs} from './refs.js';
+
+
   //создал разметку галереи через метод map
   // const itemCardsGallery =  createElement ();
    function createElement () {
@@ -22,4 +24,10 @@
         .join('');
       };
     refs.galleryUl.insertAdjacentHTML('beforeend', createElement());
-    console.log(refs.galleryUl);
+
+
+
+
+
+
+    

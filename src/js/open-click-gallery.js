@@ -1,7 +1,7 @@
 //функция на событие для просмотра изображения в модальгном окне
 
 import {refs} from './refs.js';
-
+import {onEscKeydown} from './onEscKeydown.js';
 export function onOpenClickGallery(event) {
     window.addEventListener('keydown', onEscKeydown);
     event.preventDefault();
@@ -11,7 +11,5 @@ export function onOpenClickGallery(event) {
       refs.lightboxImage.alt = event.target.alt;
       refs.lightboxImage.dataset.index = event.target.dataset.index;
     }
-    console.log(event.target.nodeName);
-
   }
   
