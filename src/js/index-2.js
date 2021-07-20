@@ -5,4 +5,3 @@ import {CloseModalBtn} from './close-modal.js';
 import {onBackdropClick} from './onBackdropClick.js';
 import {onArrowLeft, onArrowRight, step} from './onarrow.js'
 
-
