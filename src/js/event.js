@@ -1,3 +1,4 @@
+import {refs} from './refs.js';
 import {onOpenClickGallery} from './open-click-gallery.js';
 import {CloseModalBtn} from './close-modal.js';
 import {onBackdropClick} from './onBackdropClick.js';
