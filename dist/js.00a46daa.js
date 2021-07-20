@@ -166,9 +166,112 @@ exports.galleryItems = galleryItems;
 },{}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
-var _mainObjects = _interopRequireDefault(require("./main-objects.js"));
+var _mainObjects = require("./main-objects.js");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+// import *as galleryItems from '../app.js'; // забрать всё
+var refs = {
+  galleryUl: document.querySelector('.js-gallery'),
+  lightbox: document.querySelector('.lightbox'),
+  lightboxImage: document.querySelector('.lightbox__image'),
+  lightboxOverlay: document.querySelector('.lightbox__overlay'),
+  closeModalBtn: document.querySelector('[data-action="close-lightbox"]')
+};
+refs.galleryUl.addEventListener('click', onOpenClickGallery);
+refs.closeModalBtn.addEventListener('click', CloseModalBtn);
+refs.lightboxOverlay.addEventListener('click', onBackdropClick); //создал разметку галереи через метод map
+// const itemCardsGallery =  createElement ();
+
+function createElement() {
+  return _mainObjects.galleryItems.map(function (_ref, index) {
+    var original = _ref.original,
+        preview = _ref.preview,
+        description = _ref.description;
+    return "\n      <li class = gallery__item> \n        <a href=\"".concat(original, "\" class = gallery__link>\n          <img \n            class = gallery__image \n            src=\"").concat(preview, "\" \n            alt= \"").concat(description, "\" \n            data-source='").concat(original, "'\n            data-index='").concat(index, "'> \n        </a>\n      </li>\n  ");
+  }).join('');
+}
+
+;
+refs.galleryUl.insertAdjacentHTML('beforeend', createElement());
+console.log(refs.galleryUl); //функция на событие для просмотра изображения в модальгном окне
+
+function onOpenClickGallery(event) {
+  window.addEventListener('keydown', onEscKeydown);
+  event.preventDefault();
+
+  if (event.target.nodeName === 'IMG') {
+    refs.lightbox.classList.add('is-open');
+    refs.lightboxImage.src = event.target.getAttribute('data-source');
+    refs.lightboxImage.alt = event.target.alt;
+    refs.lightboxImage.dataset.index = event.target.dataset.index;
+  }
+
+  console.log(event.target.nodeName);
+} //функция для закрывания модалього окна при нажатии на кнопку
+
+
+function CloseModalBtn(event) {
+  window.removeEventListener('keydown', onEscKeydown);
+  refs.lightbox.classList.remove('is-open');
+  refs.lightboxImage.src = '';
+  refs.lightboxImage.alt = '';
+} //функция для закрывания модалього окна при нажатии на бекдроп-оверлей
+
+
+function onBackdropClick(event) {
+  if (event.currentTarget === event.target) {
+    CloseModalBtn();
+  }
+} //функция для закрывания модалього окна при нажатии на esc
+
+
+function onEscKeydown(event) {
+  var ESC_KEY_CODE = "Escape";
+
+  if (event.code === ESC_KEY_CODE) {
+    CloseModalBtn();
+  }
+
+  console.log(event);
+} //скрипт для перелистывания картинок клавишами вправо и влево 
+
+
+window.addEventListener("keydown", function (event) {
+  if (event.code === "ArrowLeft") {
+    onArrowLeft();
+  }
+
+  if (event.code === "ArrowRight") {
+    onArrowRight();
+  }
+});
+
+function onArrowLeft() {
+  var index = +refs.lightboxImage.dataset.index;
+
+  if (index === 0) {
+    step(_mainObjects.galleryItems.length - 1);
+    return;
+  }
+
+  step(index, -1);
+}
+
+function onArrowRight() {
+  var index = +refs.lightboxImage.dataset.index;
+
+  if (index === _mainObjects.galleryItems.length - 1) {
+    step(0);
+    return;
+  }
+
+  step(index, 1);
+}
+
+function step(index) {
+  var step = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  refs.lightboxImage.dataset.index = "".concat(index + step);
+  refs.lightboxImage.src = _mainObjects.galleryItems[index + step].original;
+}
 },{"./main-objects.js":"js/main-objects.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -197,7 +300,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52361" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62530" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
