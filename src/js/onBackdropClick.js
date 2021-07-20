@@ -1,5 +1,8 @@
   //функция для закрывания модалього окна при нажатии на бекдроп-оверлей
-  function onBackdropClick(event) {
+
+  import {CloseModalBtn} from './close-modal.js';
+
+  export function onBackdropClick(event) {
     if (event.currentTarget === event.target) {
       CloseModalBtn();
     }

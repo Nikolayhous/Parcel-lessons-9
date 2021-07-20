@@ -205,13 +205,7 @@ function onOpenClickGallery(event) {
     refs.lightboxImage.dataset.index = event.target.dataset.index;
   }
 
-  console.log(event.target.nodeName); // const isImagesLightboxEl = event.target.classList.contains('lightbox__image');
-  // if(!isImagesLightboxEl) {
-  //   return;
-  // }
-  //  if (event.target.nodeName === 'IMG') {
-  //  return;
-  //  }
+  console.log(event.target.nodeName);
 } //функция для закрывания модалього окна при нажатии на кнопку
 
 
@@ -306,7 +300,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54634" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55493" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

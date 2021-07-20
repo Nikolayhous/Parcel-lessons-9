@@ -1,8 +1,9 @@
   
   import {galleryItems} from './main-objects.js';
+  import {refs} from './refs.js';
   //создал разметку галереи через метод map
   // const itemCardsGallery =  createElement ();
-  function createElement () {
+   function createElement () {
     return galleryItems
         .map(({ original, preview, description }, index) => {
           return `

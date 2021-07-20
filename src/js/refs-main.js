@@ -47,13 +47,6 @@ const refs = {
       refs.lightboxImage.dataset.index = event.target.dataset.index;
     }
     console.log(event.target.nodeName);
-    // const isImagesLightboxEl = event.target.classList.contains('lightbox__image');
-    // if(!isImagesLightboxEl) {
-    //   return;
-    // }
-    //  if (event.target.nodeName === 'IMG') {
-    //  return;
-    //  }
   }
   
   //функция для закрывания модалього окна при нажатии на кнопку

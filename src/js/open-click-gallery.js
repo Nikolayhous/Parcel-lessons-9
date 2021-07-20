@@ -1,5 +1,8 @@
- //функция на событие для просмотра изображения в модальгном окне
- function onOpenClickGallery(event) {
+//функция на событие для просмотра изображения в модальгном окне
+
+import {refs} from './refs.js';
+
+export function onOpenClickGallery(event) {
     window.addEventListener('keydown', onEscKeydown);
     event.preventDefault();
     if (event.target.nodeName === 'IMG') {
@@ -9,12 +12,6 @@
       refs.lightboxImage.dataset.index = event.target.dataset.index;
     }
     console.log(event.target.nodeName);
-    // const isImagesLightboxEl = event.target.classList.contains('lightbox__image');
-    // if(!isImagesLightboxEl) {
-    //   return;
-    // }
-    //  if (event.target.nodeName === 'IMG') {
-    //  return;
-    //  }
+
   }
   
