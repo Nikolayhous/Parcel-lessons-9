@@ -19,4 +19,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{"./main-objects.js":"ffPQ","./refs.js":"VyiV"}],"Focm":[function(require,module,exports) {
 "use strict";require("./js/event"),require("./js/create-element-gallery"),require("./js/main-objects.js"),require("./js/refs.js"),require("./js/open-click-gallery.js"),require("./js/close-modal.js"),require("./js/onBackdropClick.js"),require("./js/onarrow.js");
 },{"./js/event":"lDTy","./js/create-element-gallery":"jv36","./js/main-objects.js":"ffPQ","./js/refs.js":"VyiV","./js/open-click-gallery.js":"mKTn","./js/close-modal.js":"vwdI","./js/onBackdropClick.js":"puau","./js/onarrow.js":"v0RZ"}]},{},["Focm"], null)
-//# sourceMappingURL=/Picker-lessons-8/src.51423f98.js.map
+//# sourceMappingURL=/Parcel-lessons-9/src.51423f98.js.map
