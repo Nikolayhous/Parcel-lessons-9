@@ -1,25 +1,25 @@
 {
-  "name": "Picker-lessons-8",
+  "name": "Parcel-lessons-9",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html --public-url /Picker-lessons-8/",
+    "build": "parcel build src/index.html --public-url /Parcel-lessons-9/",
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nikolayhous/Picker-lessons-8.git"
+    "url": "git+https://github.com/Nikolayhous/Parcel-lessons-9.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Nikolayhous/Picker-lessons-8/issues"
+    "url": "https://github.com/Nikolayhous/Parcel-lessons-9/issues"
   },
-  "homepage": "https://Nikolayhous.github.io/Picker-lessons-8",
+  "homepage": "https://Nikolayhous.github.io/Parcel-lessons-9",
   "dependencies": {},
   "devDependencies": {
     "gh-pages": "^3.2.3",
